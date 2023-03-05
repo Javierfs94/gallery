@@ -1,1 +1,3 @@
-# gallery
+# Gallery
+
+Photo gallery project
