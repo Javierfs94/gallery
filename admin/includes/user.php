@@ -21,13 +21,9 @@ class User
 
     public static function find_user_by_id($user_id)
     {
-        global $database;
-
         $result = self::find_this_query("SELECT * FROM users WHERE id =" . $user_id . " LIMIT 1");
 
-        $found_user = mysqli_fetch_array($result);
-
-        return $found_user;
+        return empty($result) ? array_shift($result) : false;
     }
 
 
@@ -49,12 +45,6 @@ class User
     public static function insertation($the_record)
     {
         $user = new self;
-
-        // $user->id = $found_user['id'];
-        // $user->username = $found_user['username'];
-        // $user->password = $found_user['password'];
-        // $user->first_name = $found_user['first_name'];
-        // $user->last_name = $found_user['last_name'];
 
         foreach ($the_record as $the_attribute => $value) {
 
