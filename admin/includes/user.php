@@ -23,7 +23,7 @@ class User
     {
         $result = self::find_this_query("SELECT * FROM users WHERE id =" . $user_id . " LIMIT 1");
 
-        return empty($result) ? array_shift($result) : false;
+        return !empty($result) ? array_shift($result) : false;
     }
 
 
