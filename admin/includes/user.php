@@ -63,4 +63,17 @@ class User
 
         return array_key_exists($the_attribute, $object_properties);
     }
+
+    public static function verify_user($username, $password)
+    {
+        global $database;
+
+        $username = $database->escape_string($username);
+        $password = $database->escape_string($password);
+
+        $sql = "SELECT * FROM users WHERE username = " . $username . " AND password = " . $password . " LIMIT 1";
+        $result = self::find_this_query($sql);
+
+        return !empty($result) ? array_shift($result) : false;
+    }
 }
