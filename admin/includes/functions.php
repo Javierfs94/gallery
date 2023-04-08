@@ -14,6 +14,11 @@ function AutoLoader($class)
     } else {
         die("This file name {$class}.php was not man...");;
     }
+
+    function redirect($location)
+    {
+        header("location: {$location}");
+    }
 }
 
 spl_autoload_register('AutoLoader');
