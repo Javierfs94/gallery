@@ -10,8 +10,6 @@ class User
     public $last_name;
 
 
-
-
     public static function find_all_users()
     {
         return self::find_this_query("SELECT * FROM users");
@@ -71,7 +69,7 @@ class User
         $username = $database->escape_string($username);
         $password = $database->escape_string($password);
 
-        $sql = "SELECT * FROM users WHERE username = " . $username . " AND password = " . $password . " LIMIT 1";
+        $sql = "SELECT * FROM users WHERE username = '" . $username . "' AND password = '" . $password . "' LIMIT 1";
         $result = self::find_this_query($sql);
 
         return !empty($result) ? array_shift($result) : false;
