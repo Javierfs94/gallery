@@ -1,16 +1,19 @@
 <?php
 
-require_once("init.php");
+require_once("includes/header.php");
 
 
 
 if ($session->is_signed_in()) {
-    redirect("index.php");
+    header("Location: index.php");
 }
 
 
+$message = "";
+$username = "";
+$password = "";
 
-if ($isset($_POST['submit'])) {
+if (isset($_POST['submit'])) {
 
     $username = trim($_POST['username']);
     $password = trim($_POST['password']);
@@ -19,13 +22,10 @@ if ($isset($_POST['submit'])) {
 
     if ($user_found) {
         $session->login($user_found);
-        redirect("index.php");
+        header("Location: index.php");
     } else {
         $message = "Incorrect username or password";
     }
-} else {
-    $username = "";
-    $password = "";
 }
 
 
@@ -33,7 +33,7 @@ if ($isset($_POST['submit'])) {
 
 
 <div class="col-md-4 col-md-offset-3">
-    <h4 class="bg-danger"><?php echo $the_message; ?></h4>
+    <h4 class="bg-danger"><?php echo $message; ?></h4>
 
     <form id="login-id" action="" method="post">
 
