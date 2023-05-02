@@ -9,9 +9,17 @@
 
             <?php
 
-            $found_user = User::find_user_by_id(2);
+            // $found_user = User::find_user_by_id(2);
 
-            echo $found_user->username . "<br>";
+            // echo $found_user->username . "<br>";
+
+            // $user = User::find_user_by_id(4);
+            // $user->username = "will";
+            // $user->password = "123";
+            // $user->first_name = "Will";
+            // $user->last_name = "Brush";
+
+            // $user->delete();
 
             ?>
 
