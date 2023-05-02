@@ -48,6 +48,7 @@ class Database
     {
         return $this->connection->insert_id;
     }
+
 }
 
 $database = new Database();
